@@ -1,0 +1,64 @@
+/* =====================================================
+   Global styles scoped to the React application.
+   Avoid changing the surrounding WordPress page.
+   ===================================================== */
+
+.app {
+  font-family: Arial, "Noto Sans Arabic", Tahoma, sans-serif;
+
+  color: #26394a;
+  background: #f5f9fc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Apply box sizing only inside the React application. */
+
+.app,
+.app *,
+.app *::before,
+.app *::after {
+  box-sizing: border-box;
+}
+
+/* Form controls */
+
+.app button,
+.app input,
+.app select {
+  font-family: Arial, "Noto Sans Arabic", Tahoma, sans-serif;
+
+  font-size: inherit;
+}
+
+.app button {
+  cursor: pointer;
+}
+
+/* Links */
+
+.app a {
+  color: inherit;
+}
+
+/* Images and icons */
+
+.app img,
+.app svg {
+  max-width: 100%;
+}
+
+/* Text selection */
+
+.app ::selection {
+  background: #dceefa;
+  color: #26394a;
+}

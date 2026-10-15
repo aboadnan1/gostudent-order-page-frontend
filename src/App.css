@@ -1,0 +1,2093 @@
+/* =========================================================
+   1. Application Theme and Isolation
+   ========================================================= */
+
+.app {
+  --color-primary: #548fc0;
+  --color-primary-hover: #3d7eaf;
+  --color-primary-light: #eaf4fc;
+  --color-primary-border: #bdd9ee;
+
+  --color-background: #f5f9fc;
+  --color-surface: #ffffff;
+
+  --color-text: #26394a;
+  --color-muted: #738598;
+  --color-border: #dfe8f0;
+
+  --color-success: #238565;
+  --color-success-light: #effaf5;
+
+  --color-danger: #c53d4c;
+  --color-danger-light: #fff2f3;
+
+  --shadow-card: 0 8px 28px rgb(45 75 100 / 5%);
+
+  position: relative;
+  isolation: isolate;
+
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  background: var(--color-background);
+  color: var(--color-text);
+
+  font-family: Arial, "Noto Sans Arabic", Tahoma, sans-serif;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+
+  text-align: start;
+
+  box-sizing: border-box;
+
+  container-name: order-app;
+  container-type: inline-size;
+}
+
+.app *,
+.app *::before,
+.app *::after {
+  box-sizing: border-box;
+}
+
+.app h1,
+.app h2,
+.app h3,
+.app p,
+.app a,
+.app button,
+.app input,
+.app select,
+.app label {
+  font-family: inherit;
+}
+
+.app h1,
+.app h2,
+.app h3,
+.app p {
+  overflow-wrap: anywhere;
+}
+
+.app button,
+.app input,
+.app select {
+  font-size: inherit;
+}
+
+.app button {
+  cursor: pointer;
+}
+
+.app a {
+  color: inherit;
+}
+
+.app img,
+.app svg {
+  max-width: 100%;
+}
+
+/* =========================================================
+   2. Container
+   ========================================================= */
+
+.app .container {
+  width: min(1120px, calc(100% - 40px));
+  max-width: 100%;
+  min-width: 0;
+
+  margin-inline: auto;
+}
+
+/* =========================================================
+   3. Header
+   ========================================================= */
+
+.app .site-header {
+  display: block;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+
+  background: var(--color-surface);
+}
+
+.app .header-content {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding-block: 10px;
+}
+
+.app .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-text);
+
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.4;
+
+  text-decoration: none;
+}
+
+.app .logo:hover,
+.app .logo:focus {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.app .logo-mark {
+  flex: 0 0 36px;
+
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-radius: 11px;
+
+  background: var(--color-primary);
+  color: #ffffff;
+
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.app .header-actions {
+  min-width: 0;
+  max-width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.app .language-button {
+  flex: 0 0 auto;
+
+  min-height: 39px;
+  padding: 8px 15px;
+
+  border: 1px solid var(--color-primary-border);
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: var(--color-primary-hover);
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+
+  cursor: pointer;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.app .language-button:hover {
+  border-color: var(--color-primary);
+
+  background: var(--color-primary-light);
+  color: var(--color-primary-hover);
+}
+
+.app .language-button:focus-visible {
+  outline: 3px solid rgb(84 143 192 / 24%);
+  outline-offset: 3px;
+}
+
+.app .header-badge {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 9px 13px;
+
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+
+  background: #ffffff;
+  color: var(--color-muted);
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.app .status-dot {
+  flex: 0 0 8px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  background: #83b9a3;
+}
+
+/* =========================================================
+   4. Page Introduction
+   ========================================================= */
+
+.app .page-container {
+  min-width: 0;
+  max-width: 100%;
+
+  margin-inline: auto;
+  padding: 42px 0 64px;
+}
+
+.app .page-intro {
+  min-width: 0;
+
+  margin: 0 0 30px;
+  padding: 0;
+}
+
+.app .eyebrow {
+  margin: 0 0 10px;
+  padding: 0;
+
+  color: var(--color-primary-hover);
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.app .page-intro h1 {
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-text);
+
+  font-size: clamp(29px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.6px;
+}
+
+.app .intro-description {
+  max-width: 680px;
+
+  margin: 10px 0 0;
+  padding: 0;
+
+  color: var(--color-muted);
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+.app .demo-notice {
+  display: inline-flex;
+  align-items: center;
+
+  max-width: 100%;
+
+  margin: 15px 0 0;
+  padding: 9px 13px;
+
+  border: 1px solid #d5e7f5;
+  border-radius: 9px;
+
+  background: #edf6fc;
+  color: #426f95;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   5. Checkout Layout
+   ========================================================= */
+
+.app .checkout-layout {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 340px;
+
+  align-items: start;
+  gap: 24px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app .checkout-form-section {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app #order-form {
+  display: grid;
+  gap: 20px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+}
+
+.app .form-card,
+.app .summary-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.app .form-card {
+  padding: 26px;
+}
+
+/* =========================================================
+   6. Section Headings
+   ========================================================= */
+
+.app .section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  min-width: 0;
+
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.app .section-number {
+  flex: 0 0 42px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: var(--color-primary-light);
+  color: var(--color-primary-hover);
+
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.app .section-heading > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.app .section-heading h2,
+.app .summary-header h2 {
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-text);
+
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.app .section-heading p,
+.app .summary-header p {
+  margin: 6px 0 0;
+  padding: 0;
+
+  color: var(--color-muted);
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   7. Membership Duration Cards
+   ========================================================= */
+
+.app .plan-options {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+
+  gap: 13px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app .plan-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 170px;
+
+  margin: 0;
+  padding: 19px 16px;
+
+  overflow-wrap: anywhere;
+
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+
+  background: #ffffff;
+  color: var(--color-text);
+
+  cursor: pointer;
+
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.app .plan-card:hover {
+  border-color: #a9cce7;
+  background: #fbfdff;
+}
+
+.app .plan-card:active {
+  transform: translateY(1px);
+}
+
+.app .plan-card.selected {
+  min-width: 0;
+
+  padding: 18px 15px;
+
+  border: 2px solid var(--color-primary);
+  border-radius: 14px;
+
+  background: #f0f7fc;
+
+  box-shadow: 0 4px 18px rgb(84 143 192 / 11%);
+}
+
+.app .plan-card input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+  border: 0;
+}
+
+.app .plan-card:focus-within {
+  outline: 3px solid rgb(84 143 192 / 22%);
+  outline-offset: 3px;
+}
+
+.app .plan-check {
+  position: absolute;
+
+  top: 14px;
+  inset-inline-end: 14px;
+
+  z-index: 1;
+
+  width: 23px;
+  height: 23px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  border: 1px solid #d2e0eb;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.app .plan-card.selected .plan-check {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.app .popular-badge {
+  display: inline-block;
+
+  width: fit-content;
+  max-width: calc(100% - 28px);
+  min-width: 0;
+
+  margin: 0 0 2px;
+  padding: 5px 8px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: #dceefa;
+  color: #356f9e;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.6;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.app .plan-title {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 9px 0 0;
+  padding: 0;
+  padding-inline-end: 31px;
+
+  color: var(--color-text);
+
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.7;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.app .plan-description {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 5px 0 0;
+  padding: 0;
+
+  color: var(--color-muted);
+
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.app .plan-price {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin-top: auto;
+  padding: 13px 0 0;
+
+  color: var(--color-primary-hover);
+
+  font-size: clamp(13px, 1.3vw, 17px);
+  font-weight: 800;
+  line-height: 1.7;
+
+  font-variant-numeric: tabular-nums;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.app .plan-monthly-caption {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 2px 0 0;
+  padding: 0;
+
+  color: var(--color-muted);
+
+  font-size: 11px;
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+.app .plan-discount {
+  display: inline-block;
+
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 8px 0 0;
+  padding: 4px 7px;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: #e9f6ef;
+  color: #297c59;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.7;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   8. Monthly Lesson Frequency
+   ========================================================= */
+
+.app .frequency-options {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+
+  gap: 11px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app .frequency-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 115px;
+
+  margin: 0;
+  padding: 14px 8px;
+
+  overflow-wrap: anywhere;
+
+  border: 1px solid var(--color-border);
+  border-radius: 13px;
+
+  background: #ffffff;
+  color: var(--color-text);
+
+  cursor: pointer;
+  text-align: center;
+
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.app .frequency-card:hover {
+  border-color: #a9cce7;
+}
+
+.app .frequency-card.selected {
+  padding: 13px 7px;
+
+  border: 2px solid var(--color-primary);
+  border-radius: 13px;
+
+  background: #f0f7fc;
+
+  box-shadow: 0 4px 14px rgb(84 143 192 / 9%);
+}
+
+.app .frequency-card input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+  border: 0;
+}
+
+.app .frequency-card:focus-within {
+  outline: 3px solid rgb(84 143 192 / 22%);
+  outline-offset: 3px;
+}
+
+.app .frequency-count,
+.app .frequency-label,
+.app .frequency-period {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin-inline: auto;
+
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.app .frequency-count {
+  color: var(--color-primary-hover);
+
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.app .frequency-label {
+  margin-top: 5px;
+
+  color: var(--color-text);
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.app .frequency-period {
+  margin-top: 3px;
+
+  color: var(--color-muted);
+
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   9. Customer Information Form
+   ========================================================= */
+
+.app .form-fields {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+
+  gap: 22px 16px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+}
+
+.app .form-field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  gap: 9px;
+}
+
+.app .form-field > label {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-text);
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+
+  overflow-wrap: anywhere;
+}
+
+.app .form-field input,
+.app .form-field select {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 48px;
+
+  margin: 0;
+  padding: 12px 13px;
+
+  border: 1px solid #d9e4ec;
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: var(--color-text);
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  box-shadow: none;
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.app .form-field input {
+  text-align: start;
+}
+
+.app .form-field input::placeholder {
+  color: #9aaaba;
+  opacity: 1;
+}
+
+.app .form-field input:focus,
+.app .form-field select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(84 143 192 / 12%);
+}
+
+.app .form-field input[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.app .form-field select {
+  cursor: pointer;
+}
+
+.app .form-field input[type="email"],
+.app .form-field input[type="tel"] {
+  direction: ltr;
+  text-align: left;
+}
+
+.app .field-error {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-danger);
+
+  font-size: 12px;
+  line-height: 1.8;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   10. Country Code and Phone Number
+   ========================================================= */
+
+.app .phone-input-group {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
+
+  align-items: stretch;
+  gap: 8px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  direction: ltr;
+}
+
+.app .phone-input-group input,
+.app .phone-input-group select {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 48px;
+
+  margin: 0;
+  padding: 10px 8px;
+
+  font-size: 12px;
+
+  direction: ltr;
+  text-align: left;
+}
+
+.app .phone-input-group select {
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+/* =========================================================
+   11. Terms and Conditions
+   ========================================================= */
+
+.app .terms-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 24px 0 0;
+  padding: 0;
+
+  color: var(--color-muted);
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.9;
+
+  cursor: pointer;
+}
+
+.app .terms-option input {
+  flex: 0 0 17px;
+
+  width: 17px;
+  height: 17px;
+
+  margin: 3px 0 0;
+  padding: 0;
+
+  accent-color: var(--color-primary);
+}
+
+.app .terms-option span {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  overflow-wrap: anywhere;
+}
+
+.app .terms-error {
+  margin: 8px 0 0;
+}
+
+/* =========================================================
+   12. Submit Button and Form Messages
+   ========================================================= */
+
+.app .submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 54px;
+
+  margin: 0;
+  padding: 14px 20px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: var(--color-primary);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.6;
+
+  text-align: center;
+  text-decoration: none;
+
+  box-shadow: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.app .submit-button:hover:not(:disabled) {
+  border-color: transparent;
+
+  background: var(--color-primary-hover);
+  color: #ffffff;
+
+  box-shadow: 0 4px 12px rgb(61 126 175 / 14%);
+}
+
+.app .submit-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.app .submit-button:focus-visible {
+  outline: 3px solid rgb(84 143 192 / 28%);
+  outline-offset: 3px;
+}
+
+.app .submit-button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  box-shadow: none;
+}
+
+.app .form-message {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 13px 15px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  font-size: 13px;
+  line-height: 1.9;
+
+  overflow-wrap: anywhere;
+}
+
+.app .form-message.error {
+  border-color: #f1c5ca;
+
+  background: var(--color-danger-light);
+  color: #a82e3b;
+}
+
+.app .form-message.success {
+  border-color: #bce5d2;
+
+  background: var(--color-success-light);
+  color: #16734e;
+}
+
+.app .form-message.loading {
+  border-color: #d6e8f5;
+
+  background: #f0f7fc;
+  color: #426f95;
+}
+
+/* =========================================================
+   13. Membership Summary
+   ========================================================= */
+
+.app .summary-card {
+  position: sticky;
+  top: 24px;
+
+  padding: 25px;
+}
+
+.app .summary-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0 0 22px;
+
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app .summary-icon {
+  flex: 0 0 42px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: var(--color-primary-light);
+  color: var(--color-primary-hover);
+
+  font-weight: 800;
+  line-height: 1;
+}
+
+.app .summary-header > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.app .selected-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 22px 0;
+}
+
+.app .summary-label {
+  color: var(--color-muted);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.app .selected-plan > strong {
+  display: block;
+
+  color: var(--color-text);
+
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+.app .summary-description {
+  color: var(--color-muted);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.app .summary-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 17px 0 0;
+  padding: 0;
+
+  border: 0;
+
+  color: var(--color-muted);
+
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.app .summary-row > span:first-child {
+  flex: 1 1 auto;
+
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-muted);
+
+  overflow-wrap: anywhere;
+}
+
+.app .summary-row > strong {
+  flex: 0 1 48%;
+
+  width: auto;
+  max-width: 48%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-text);
+
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1.8;
+
+  text-align: end;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.app .summary-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 23px 0 0;
+  padding: 0;
+
+  border: 0;
+
+  background: var(--color-border);
+}
+
+.app .monthly-total {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 22px 0 0;
+  padding: 17px;
+
+  border: 1px solid #d6e8f5;
+  border-radius: 12px;
+
+  background: #f0f7fc;
+}
+
+.app .monthly-total > span {
+  color: var(--color-muted);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.app .monthly-total > strong {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-primary-hover);
+
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.7;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.app .savings-row > strong {
+  color: var(--color-success);
+}
+
+.app .contract-total {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 20px 0 0;
+  padding: 20px 0 0;
+
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.app .contract-total > span:first-child {
+  color: var(--color-text);
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.app .contract-total > strong {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-text);
+
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.7;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.app .contract-duration {
+  color: var(--color-muted);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.app .summary-note {
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 16px 0 0;
+  padding: 0;
+
+  color: var(--color-muted);
+
+  font-size: 11px;
+  line-height: 1.9;
+
+  overflow-wrap: anywhere;
+}
+
+.app .summary-benefits {
+  display: grid;
+  gap: 13px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 23px 0 0;
+  padding: 21px 0 0;
+
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.app .summary-benefits p {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: #64778a;
+
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.app .summary-benefits span {
+  flex-shrink: 0;
+
+  color: var(--color-success);
+  font-weight: 800;
+}
+
+.app .security-note {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 22px 0 0;
+  padding: 12px;
+
+  border: 1px solid #e3ecf3;
+  border-radius: 10px;
+
+  background: #f7fafc;
+  color: var(--color-muted);
+
+  font-size: 11px;
+  line-height: 1.9;
+
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   14. Footer
+   ========================================================= */
+
+.app .site-footer {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 24px 0;
+
+  border: 0;
+  border-top: 1px solid var(--color-border);
+
+  background: #ffffff;
+  color: var(--color-muted);
+
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.app .site-footer .container {
+  margin-inline: auto;
+}
+
+/* =========================================================
+   15. Container-Based Responsiveness
+   ========================================================= */
+
+@container order-app (max-width: 1040px) {
+  .app .checkout-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .app .summary-card {
+    position: static;
+    grid-row: 2;
+  }
+}
+
+@container order-app (max-width: 760px) {
+  .app .plan-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .app .frequency-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .app .plan-card,
+  .app .plan-card.selected {
+    min-height: 155px;
+  }
+
+  .app .form-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container order-app (max-width: 560px) {
+  .app .page-container {
+    padding-top: 26px;
+    padding-bottom: 36px;
+  }
+
+  .app .checkout-layout {
+    gap: 16px;
+  }
+
+  .app #order-form {
+    gap: 16px;
+  }
+
+  .app .form-card,
+  .app .summary-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .app .section-heading {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .app .section-number {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .app .section-heading h2,
+  .app .summary-header h2 {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .app .plan-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .app .plan-card,
+  .app .plan-card.selected {
+    min-height: 160px;
+    padding: 13px 11px;
+  }
+
+  .app .plan-card.selected {
+    padding: 12px 10px;
+  }
+
+  .app .plan-check {
+    top: 11px;
+    inset-inline-end: 9px;
+
+    width: 21px;
+    height: 21px;
+  }
+
+  .app .plan-title {
+    padding-inline-end: 25px;
+    margin-top: 10px;
+
+    font-size: 13px;
+  }
+
+  .app .plan-price {
+    padding-top: 12px;
+    font-size: 14px;
+  }
+
+  .app .plan-monthly-caption,
+  .app .plan-discount {
+    font-size: 10px;
+  }
+
+  .app .frequency-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .app .frequency-card {
+    min-height: 100px;
+    padding: 12px 8px;
+  }
+
+  .app .frequency-count {
+    font-size: 23px;
+  }
+
+  .app .form-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app .phone-input-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .app .phone-input-group select,
+  .app .phone-input-group input {
+    min-height: 48px;
+  }
+
+  .app .monthly-total {
+    padding: 14px;
+  }
+
+  .app .monthly-total > strong {
+    font-size: 22px;
+  }
+
+  .app .contract-total > strong {
+    font-size: 19px;
+  }
+
+  .app .summary-row {
+    gap: 8px;
+  }
+
+  .app .summary-row > strong {
+    flex-basis: 46%;
+    max-width: 46%;
+  }
+}
+
+@container order-app (max-width: 380px) {
+  .app .header-content {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-block: 12px;
+  }
+
+  .app .header-actions {
+    max-width: 100%;
+    gap: 7px;
+  }
+
+  .app .header-badge {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .app .form-card,
+  .app .summary-card {
+    padding: 13px;
+  }
+
+  .app .plan-options {
+    gap: 8px;
+  }
+
+  .app .plan-card,
+  .app .plan-card.selected {
+    padding-inline: 9px;
+  }
+
+  .app .plan-card.selected {
+    padding-inline: 8px;
+  }
+
+  .app .plan-title {
+    padding-inline-end: 23px;
+    font-size: 12px;
+  }
+
+  .app .plan-price {
+    font-size: 13px;
+  }
+
+  .app .summary-row {
+    font-size: 11px;
+  }
+
+  .app .summary-row > strong {
+    flex-basis: 48%;
+    max-width: 48%;
+  }
+}
+
+/* =========================================================
+   16. Viewport Fallbacks
+   ========================================================= */
+
+@media (max-width: 1040px) {
+  .app .checkout-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .app .summary-card {
+    position: static;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .app .form-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app .phone-input-group {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* =========================================================
+   17. Accessibility
+   ========================================================= */
+
+.app :focus-visible {
+  outline-color: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app .plan-card,
+  .app .frequency-card,
+  .app .form-field input,
+  .app .form-field select,
+  .app .language-button,
+  .app .submit-button {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   18. Billing Address and Payment UI additions
+   These rules extend the current responsive system without replacing it.
+   ========================================================= */
+.app .subsection-heading {
+  margin: 26px 0 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.app .subsection-heading h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.app .billing-address-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(130px, 0.7fr);
+  gap: 18px 16px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app .billing-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 18px 16px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-top: 18px;
+}
+
+.app .payment-method-label {
+  margin: 0 0 10px;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.app .payment-method-options {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app .payment-method-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--color-text);
+  font-size: 12px;
+  line-height: 1.6;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.app .payment-method-option.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  box-shadow: 0 0 0 2px rgb(84 143 192 / 8%);
+}
+
+.app .payment-method-option input {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.app .payment-method-option:focus-within {
+  outline: 3px solid rgb(84 143 192 / 20%);
+  outline-offset: 2px;
+}
+
+.app .payment-brands {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+  min-width: 0;
+}
+
+.app .payment-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: 28px;
+  padding: 4px 8px;
+  border: 1px solid #e0e7ee;
+  border-radius: 5px;
+  background: #fff;
+  color: #2e4b70;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.app .payment-brand.mastercard {
+  color: #344356;
+  font-style: normal;
+  font-size: 9px;
+}
+
+.app .payment-brand.mastercard i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-inline-end: -4px;
+  border-radius: 50%;
+  background: #e94b4b;
+}
+
+.app .payment-brand.mastercard i + i {
+  margin-inline-end: 4px;
+  background: #f3a33b;
+  opacity: 0.95;
+}
+
+.app .payment-brand.amex {
+  background: #edf5fc;
+  color: #306d9e;
+  font-style: normal;
+  letter-spacing: 0.2px;
+}
+
+.app .payment-fields {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app .payment-fields,
+.app .payment-fields .form-field,
+.app .card-details-grid {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.app .card-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  min-width: 0;
+}
+
+.app .payment-fields input {
+  direction: ltr;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+
+.app .demo-payment-note {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #e3ecf3;
+  border-radius: 8px;
+  background: #f7fafc;
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.app .prepayment-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 13px;
+  border: 1px solid #d6e8f5;
+  border-radius: 11px;
+  background: #f0f7fc;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.app .prepayment-option > input {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin: 3px 0 0;
+  accent-color: var(--color-primary);
+}
+
+.app .prepayment-option > span {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.app .prepayment-option strong {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.app .prepayment-option small {
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.app .refund-note {
+  margin: 10px 0 0;
+  padding: 0;
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+@container order-app (max-width: 760px) {
+  .app .billing-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container order-app (max-width: 560px) {
+  .app .billing-address-grid,
+  .app .billing-meta-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app .payment-method-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app .card-details-grid {
+    gap: 12px;
+  }
+}
+
+@container order-app (max-width: 380px) {
+  .app .card-details-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app .payment-method-option {
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .app .billing-address-grid,
+  .app .billing-meta-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app .payment-method-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
